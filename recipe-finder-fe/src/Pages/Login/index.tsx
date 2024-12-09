@@ -1,3 +1,5 @@
+import SubmitInput from "../../Utilities/SubmitInput";
+
 function Login() {
   return (
     <div>
@@ -12,7 +14,7 @@ function Login() {
           id="email"
           className="border border-slate-400 rounded-md"
         />
-        <input type="submit" className="border bg-amber-600 rounded-md" />
+        <SubmitInput value="Log In" />
       </form>
     </div>
   );
