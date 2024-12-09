@@ -8,12 +8,17 @@ function App() {
   const [currentUserId, setUserId] = useState(0);
 
   return (
-    <>
-      <UserContext.Provider value={{ userId: currentUserId, changeUserID: setUserId }} >
+    <div className="flex flex-col min-h-screen ">
+      <UserContext.Provider
+        value={{ userId: currentUserId, changeUserID: setUserId }}
+      >
         <Login></Login>;
         <TextInput />
+        <footer className="mt-auto text-center p-4">
+          <p>Copyright © Blue Lobsters 2024</p>
+        </footer>
       </UserContext.Provider>
-    </>
+    </div>
   );
 }
 

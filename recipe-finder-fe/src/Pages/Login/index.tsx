@@ -6,7 +6,7 @@ function Login() {
       <p>Put app description here</p>
       <form
         action=""
-        className="flex flex-col mx-auto border border-black rounded-md p-4 gap-2 lg:max-w-sm"
+        className="flex flex-col mx-auto border border-black rounded-md p-4  gap-2 max-w-sm"
       >
         <label htmlFor="email">Email Address:</label>
         <input
