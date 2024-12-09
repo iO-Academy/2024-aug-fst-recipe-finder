@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import TextInput from "./Utilities/TextInput";
 import UserContext from "./Contexts/UserContext";
 import Login from "./Pages/Login";
 
@@ -13,7 +12,6 @@ function App() {
         value={{ userId: currentUserId, changeUserID: setUserId }}
       >
         <Login></Login>;
-        <TextInput />
         <footer className="mt-auto text-center p-4">
           <p>Copyright © Blue Lobsters 2024</p>
         </footer>
