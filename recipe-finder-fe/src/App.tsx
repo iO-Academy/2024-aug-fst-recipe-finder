@@ -4,6 +4,7 @@ import UserContext from "./Contexts/UserContext";
 import Login from "./Pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AllRecipes from "./Pages/AllRecipes";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   const [currentUserId, setUserId] = useState(0);
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Login></Login>} />
             <Route path='recipes/:currentUserId' element={<AllRecipes></AllRecipes>} />
+            <Route path='*' element={<NotFound/>} />
           </Routes>
 
         </BrowserRouter>
