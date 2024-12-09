@@ -17,7 +17,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Login></Login>} />
-          <Route path='recipes' element={<AllRecipes></AllRecipes>} />
+          <Route path='recipes/:currentUserId' element={<AllRecipes></AllRecipes>} />
         </Routes>
         </BrowserRouter>
       </UserContext.Provider>
