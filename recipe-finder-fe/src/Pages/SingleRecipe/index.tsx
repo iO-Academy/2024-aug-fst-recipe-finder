@@ -2,8 +2,11 @@
 
 function SingleRecipe() {
   return ( 
-    <div className="border-4 border-solid border-black rounded-lg w-screen mt-10 file:my-auto mx-auto max-w-md px-4">
-        <h2 className="border-2 border-solid border-black rounded p-2 text-center font-bold my-4">Single Recipe</h2>
+    <div className="border-4 border-solid border-black rounded-lg w-screen mt-40 file:my-auto mx-auto max-w-md px-4">
+      <div className="flex flex-row">
+        <button className="border-2 border-solid border-black rounded justify-self-center w-1/2 p-2 text-center font-bold my-4">Back</button>
+        <div className="border-2 border-solid border-black rounded justify-self-center w-1/2 p-2 text-center font-bold my-4">Single Recipe</div>
+      </div>
       <div id="recipecard" className=" p-2 text-center font-bold my-4">
         <div className="border-2 border-solid border-black rounded p-2 text-center font-bold my-4">Recipe Name</div>
         <div id="times" className="flex flex-row justify-between text-center font-bold my-4">
