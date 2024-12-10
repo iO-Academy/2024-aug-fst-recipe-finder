@@ -15,7 +15,7 @@ function Login() {
 
   async function userSignIn(formData: FormData) {
     let data = {
-      email: formData.get("email");
+      email: formData.get("email"),
     };
     try {
       const response = await fetch(`${BASE_URL}/users`, {
@@ -25,7 +25,7 @@ function Login() {
       const responseData = await response.json();
       if (response.ok) {
         changeUserId(responseData.data.userId);
-        console.log(userId)
+        console.log(userId);
       }
     } catch {}
   }
