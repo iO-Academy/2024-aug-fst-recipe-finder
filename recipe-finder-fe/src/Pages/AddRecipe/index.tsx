@@ -1,11 +1,11 @@
 import TextInput from "../../Utilities/TextInput";
 
-
 export default function AddRecipe() {
   return (
     <>
-      <div className="my-auto mx-auto max-w-md px-4">
+      <div className="mt-4 w-10/12 mx-auto max-w-sm">
         <TextInput
+          title="Recipe Name"
           type="text"
           name="addrecipe"
           id="addrecipe"
