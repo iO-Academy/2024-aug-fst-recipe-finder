@@ -2,7 +2,7 @@ import SubmitInput from "../../Utilities/SubmitInput";
 
 function Login() {
   return (
-    <div className="my-auto px-4">
+    <div className="my-auto mx-auto max-w-md px-4">
       <h2 className="text-center font-bold my-4">Welcome to the FoodHub.</h2>
       <p className="text-center my-4"> This app is designed to help you match the ingredients in your home to recipes you enjoy! Create an account and login to save your ingredients and recipes.</p>
       <form
