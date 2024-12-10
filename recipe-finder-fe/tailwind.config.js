@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        'foodHubOrange': '#E27D08',
-        'background': '#FCFDF7'
-      }
-    }
+        foodHubOrange: "#E27D08",
+        background: "#FCFDF7",
+      },
+    },
   },
   plugins: [],
 };
