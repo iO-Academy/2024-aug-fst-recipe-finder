@@ -1,3 +1,9 @@
+import Header from "../../Components/Header";
+
 export default function AllRecipes() {
-  return <></>;
+  return (
+    <>
+      <Header title="All Recipes" />
+    </>
+  );
 }

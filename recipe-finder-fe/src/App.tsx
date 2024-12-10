@@ -12,7 +12,6 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <Header title="FoodHub" />
       <UserContext.Provider
         value={{ userId: currentUserId, changeUserID: setUserId }}
       >
