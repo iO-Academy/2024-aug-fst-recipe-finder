@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AllRecipes from "./Pages/AllRecipes";
 import NotFound from "./Pages/NotFound";
 import Header from "./Components/Header";
+import RecipeCard from "./Components/RecipeCard";
+
 
 function App() {
   const [currentUserId, setUserId] = useState(0);
@@ -13,6 +15,8 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header title="FoodHub" />
+      <RecipeCard name="Recipe Name" time="15" />
+
       <UserContext.Provider
         value={{ userId: currentUserId, changeUserID: setUserId }}
       >
