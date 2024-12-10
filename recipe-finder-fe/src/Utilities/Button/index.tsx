@@ -1,13 +1,13 @@
 interface ButtonInput {
-    value: string, // button text
-    onPress: () => void, // not 100% on this type function returns void
+    value: string,
+    link: string,
     width: string; // Will be a string due to tailwind
     height: string;
 }
 
-function ButtonInput({  value, onPress, width, height  }: ButtonInput) {
+function ButtonInput({  value, link, width, height  }: ButtonInput) {
     return (
-        <Button title={value} onPress={onPress} className={`border bg-foodHubOrange rounded-md hover:cursor-pointer ${width} ${height}`}></Button>
+        <a href={link}><button className={`border bg-foodHubOrange rounded-md hover:cursor-pointer ${width} ${height}`}>{value}</button></a>
     )
 }
 
