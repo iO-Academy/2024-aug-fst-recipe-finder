@@ -11,7 +11,7 @@ function App() {
   const [currentUserId, setUserId] = useState(0);
 
   return (
-    <div className="flex flex-col min-h-screen ">
+    <div className="flex flex-col min-h-screen bg-background">
       <Header title="Recipe Maker" />
       <UserContext.Provider
         value={{ userId: currentUserId, changeUserID: setUserId }}

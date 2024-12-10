@@ -3,7 +3,8 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
-      'foodHubOrange': '#E27D08'
+      'foodHubOrange': '#E27D08',
+      'background': '#FCFDF7'
     },
     extend: {},
   },
