@@ -18,6 +18,7 @@ function Login() {
       email: formData.get("email"),
     };
     try {
+      console.log(data);
       const response = await fetch(`${BASE_URL}/users`, {
         method: "POST",
         body: JSON.stringify(data),
