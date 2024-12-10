@@ -14,6 +14,7 @@ export default function NumberInput({
 }: NumberInputProps) {
   return (
     <>
+    <input type="textarea" name="" id="" />
       <label htmlFor={id}>
         {title}
         <input
