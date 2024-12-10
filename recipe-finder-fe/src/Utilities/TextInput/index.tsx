@@ -1,5 +1,4 @@
 interface TextInputProps {
-  type: string;
   name: string;
   id: string;
   placeholder: string;
@@ -7,7 +6,6 @@ interface TextInputProps {
 }
 
 export default function TextInput({
-  type,
   name,
   id,
   placeholder,
@@ -18,11 +16,11 @@ export default function TextInput({
       <label htmlFor={id}>
         {title}
         <input
-          type={type}
+          type="text"
           name={name}
           id={id}
           placeholder={placeholder}
-          className="w-10/12 border-2 rounded-lg px-2 py-1"
+          className="w-full border-2 rounded-lg px-2 py-2 text-sm mt-1"
         />
       </label>
     </>
