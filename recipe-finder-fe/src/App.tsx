@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <UserContext.Provider
-        value={{ userId: currentUserId, changeUserID: setUserId }}
+        value={{ userId: currentUserId, changeUserId: setUserId }}
       >
         <BrowserRouter>
           <Routes>

@@ -1,10 +1,13 @@
 import React from "react";
 
 interface userTypeContext {
-    userId: number,
-    changeUserID: React.Dispatch<React.SetStateAction<number>>
+  userId: number;
+  changeUserId: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const UserContext = React.createContext<userTypeContext>({ userId: 0, changeUserID: () =>{} });
+const UserContext = React.createContext<userTypeContext>({
+  userId: 0,
+  changeUserId: () => {},
+});
 
 export default UserContext;
