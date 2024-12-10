@@ -6,7 +6,7 @@ function SubmitInput({ value }: SubmitInput) {
   return (
     <input
       type="submit"
-      className="border bg-amber-600 rounded-md"
+      className="border bg-foodHubOrange rounded-md"
       value={value}
     />
   );
