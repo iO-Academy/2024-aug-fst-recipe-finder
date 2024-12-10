@@ -3,6 +3,7 @@ interface TextInputProps {
   id: string;
   placeholder: string;
   title: string;
+  required?: boolean;
 }
 
 export default function TextInput({
@@ -10,6 +11,7 @@ export default function TextInput({
   id,
   placeholder,
   title,
+  required
 }: TextInputProps) {
   return (
     <>
@@ -21,6 +23,7 @@ export default function TextInput({
           id={id}
           placeholder={placeholder}
           className="w-full border-2 rounded-lg px-2 py-2 text-sm mt-1"
+          required={required}
         />
       </label>
     </>

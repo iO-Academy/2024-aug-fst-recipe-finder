@@ -7,12 +7,14 @@ import AllRecipes from "./Pages/AllRecipes";
 import NotFound from "./Pages/NotFound";
 import Header from "./Components/Header";
 
+
 function App() {
   const [currentUserId, setUserId] = useState(0);
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header title="FoodHub" />
+
       <UserContext.Provider
         value={{ userId: currentUserId, changeUserID: setUserId }}
       >
