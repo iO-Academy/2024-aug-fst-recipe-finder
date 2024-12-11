@@ -1,21 +1,43 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import NumberInput from "../../Utilities/NumberInput";
 import Textarea from "../../Utilities/Textarea";
 import TextInput from "../../Utilities/TextInput";
 import SubmitInput from "../../Utilities/SubmitInput";
 import Header from "../../Components/Header";
+import BASE_URL from "../../settings";
 
-export default function AddRecipe() {
-  const [recipe, setRecipe] = useState({});
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const formData = {
-     recipe,
-    };
-    console.log(formData);
+async function addRecipe(formData: FormData) {
+  let data = {
+    name: formData.get("name"),
+    instructions: formData.get("instructions"),
+    prep_time: formData.get("prep_time"),
+    cook_time: formData.get("cook_time"),
   };
+  try {
+    const response = await fetch(`${BASE_URL}/users/recipes`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      const responseData = await response.json();
+      console.log(responseData.message);
+    } else {
+      console.error("Error:", response.status, response.statusText);
+    }
+  } catch (error) {
+    console.log("error");
+  }
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    return formData;
+  }
 
   return (
     <>
@@ -23,8 +45,8 @@ export default function AddRecipe() {
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className="w-full px-5 mt-4">
           <TextInput
-            title="Recipe Name"
-            name="addrecipe"
+            title="Recipe name"
+            name="name"
             id="addrecipe"
             placeholder="enter recipe name"
           />
@@ -34,8 +56,8 @@ export default function AddRecipe() {
             id="instructions"
           />
           <div className="flex space-x-4">
-            <NumberInput title="Prep time" name="preptime" id="preptime" />
-            <NumberInput title="Cook time" name="cooktime" id="cooktime" />
+            <NumberInput title="Prep time" name="prep_time" id="preptime" />
+            <NumberInput title="Cook time" name="cook_time" id="cooktime" />
           </div>
           <SubmitInput value="add recipe" />
         </div>
@@ -43,3 +65,5 @@ export default function AddRecipe() {
     </>
   );
 }
+
+export default addRecipe;
