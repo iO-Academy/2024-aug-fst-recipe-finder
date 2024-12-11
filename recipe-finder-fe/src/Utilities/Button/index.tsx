@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface ButtonInput {
     value: string,
     link: string,
@@ -7,7 +9,7 @@ interface ButtonInput {
 
 function ButtonInput({  value, link, width, height  }: ButtonInput) {
     return (
-        <a href={link}><button className={`border bg-foodHubOrange rounded-md hover:cursor-pointer ${width} ${height}`}>{value}</button></a>
+        <Link to={link}><button className={`border bg-foodHubOrange rounded-md hover:cursor-pointer ${width} ${height}`}>{value}</button></Link>
     )
 }
 
