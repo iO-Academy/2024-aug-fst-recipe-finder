@@ -8,6 +8,7 @@ import NotFound from "./Pages/NotFound";
 import Header from "./Components/Header";
 import AddRecipe from "./Pages/AddRecipe";
 
+import SingleRecipe from "./Pages/SingleRecipe";
 
 function App() {
   const [currentUserId, setUserId] = useState(0);
@@ -28,6 +29,7 @@ function App() {
               element={<AllRecipes></AllRecipes>}
             />
             <Route path="*" element={<NotFound />} />
+            <Route path="/singlerecipe" element={<SingleRecipe></SingleRecipe>} />
           </Routes>
         </BrowserRouter>
 
