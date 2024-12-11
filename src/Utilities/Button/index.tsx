@@ -4,7 +4,6 @@ interface ButtonProps {
   value: string;
   width?: string;
   height?: string;
-  to?: string;
   page: string;
 }
 

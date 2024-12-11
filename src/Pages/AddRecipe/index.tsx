@@ -1,4 +1,4 @@
-import { FormEvent, useContext} from "react";
+import { FormEvent, useContext } from "react";
 import NumberInput from "../../Utilities/NumberInput";
 import TextInput from "../../Utilities/TextInput";
 import SubmitInput from "../../Utilities/SubmitInput";
@@ -6,10 +6,11 @@ import Header from "../../Components/Header";
 import BASE_URL from "../../settings";
 import Textarea from "../../Utilities/TextArea";
 import UserContext from "../../Contexts/UserContext";
-
+import Button from "../../Utilities/Button";
 
 function AddRecipe() {
-  const { userId } = useContext(UserContext);
+    const { userId } = useContext(UserContext);
+
 
   async function addRecipeData(formData: FormData) {
     let data = {
@@ -47,7 +48,9 @@ function AddRecipe() {
   return (
     <>
       <Header title="Add Recipe" />
-      
+      <div>
+        <Button value="<< All recipes" page={`/recipes/${userId}`} />
+      </div>
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className="w-full px-5 mt-4">
           <TextInput
