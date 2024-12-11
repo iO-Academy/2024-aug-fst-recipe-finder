@@ -1,11 +1,33 @@
-import { FormEvent, useContext } from "react";
+import { FormEvent, useContext, useEffect } from "react";
 import Header from "../../Components/Header";
 import UserContext from "../../Contexts/UserContext";
 import SubmitInput from "../../Utilities/SubmitInput";
 import BASE_URL from "../../settings";
+import { useNavigate } from "react-router";
 
 function Login() {
   const { userId, changeUserId } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  async function userSignIn(formData: FormData) {
+    let data = {
+      email: formData.get("email"),
+    };
+
+    try {
+      const response = await fetch(`${BASE_URL}/users`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const responseData = await response.json();
+      if (response.ok) {
+        changeUserId(responseData.data.userId);
+      }
+    } catch {}
+  }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -13,23 +35,12 @@ function Login() {
     userSignIn(formData);
   }
 
-  async function userSignIn(formData: FormData) {
-    let data = {
-      email: formData.get("email"),
-    };
-    try {
-      console.log(data);
-      const response = await fetch(`${BASE_URL}/users`, {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
-      const responseData = await response.json();
-      if (response.ok) {
-        changeUserId(responseData.data.userId);
-        console.log(userId);
-      }
-    } catch {}
-  }
+  useEffect(() => {
+    if (userId) {
+      navigate(`/recipes/${userId}`);
+    }
+  }, [userId]);
+
   return (
     <>
       <Header title="FoodHub" />
