@@ -1,10 +1,14 @@
 // import SubmitInput from "../../Utilities/SubmitInput";
+interface RecipeCardProps {
+  name: string;
+  time: string;
+}
 
-function SingleRecipe() {
+function SingleRecipe(name, time):RecipeCardProps {
   return ( 
     <div className="border-4 border-solid border-black rounded-lg w-screen mt-20 file:my-auto mx-auto max-w-md px-4">
       <div className="">
-        <button className="inline-flex border-2 border-solid border-black rounded-lg w-1/8 p-2 text-center font-bold mx-2">Back</button>
+        <a href="/"><button className="inline-flex rounded-lg bg-[#e27d08] w-1/8 p-2 text-center font-bold mx-2">Back</button></a>
         <div className="inline-flex border-2 border-solid border-black rounded-lg w-7/8 p-2 text-center font-bold mx-16 my-4">Single Recipe</div>
       </div>
       <div id="recipecard" className=" p-2 text-center font-bold my-4">
