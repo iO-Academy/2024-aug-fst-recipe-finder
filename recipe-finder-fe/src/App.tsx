@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header title="FoodHub" />
-      <AddRecipe />
+
 
       <UserContext.Provider
         value={{ userId: currentUserId, changeUserID: setUserId }}
@@ -30,6 +30,7 @@ function App() {
             />
             <Route path="*" element={<NotFound />} />
             <Route path="/singlerecipe" element={<SingleRecipe></SingleRecipe>} />
+            <Route path="/addrecipe" element={<AddRecipe />} />
           </Routes>
         </BrowserRouter>
 
