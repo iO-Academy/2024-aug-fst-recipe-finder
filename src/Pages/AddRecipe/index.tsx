@@ -79,7 +79,7 @@ function AddRecipe() {
               required={true}
             />
           </div>
-          <SubmitInput value="add recipe" />
+          <SubmitInput value="Add recipe" />
         </div>
       </form>
     </>
