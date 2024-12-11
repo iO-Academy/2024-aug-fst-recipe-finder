@@ -7,6 +7,8 @@ import BASE_URL from "../../settings";
 import Textarea from "../../Utilities/TextArea";
 import UserContext from "../../Contexts/UserContext";
 import Button from "../../Utilities/Button";
+import { Link } from "react-router";
+
 
 function AddRecipe() {
     const { userId } = useContext(UserContext);
@@ -48,7 +50,7 @@ function AddRecipe() {
   return (
     <>
       <Header title="Add Recipe" />
-      
+      <Link className="ml-5 mt-4" to={`/recipes/${userId}`}><Button value="Back" width="w-20" height="h-10"/></Link>
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className="w-full px-5 mt-4">
           <TextInput
