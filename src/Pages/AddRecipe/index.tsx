@@ -24,7 +24,6 @@ export default function AddRecipe() {
         <div className="w-full px-5 mt-4">
           <TextInput
             title="Recipe Name"
-            type="text"
             name="addrecipe"
             id="addrecipe"
             placeholder="enter recipe name"
