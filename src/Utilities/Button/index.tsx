@@ -1,21 +1,11 @@
-import { Link } from "react-router";
-
-interface ButtonProps {
-  value: string;
-  width?: string;
-  height?: string;
-  page: string;
+interface ButtonInput {
+    value: string,
+    width?: string;
+    height?: string;
 }
-
-function Button({ value, width, height, page }: ButtonProps) {
-  return (
-    <Link
-      to={page}
-      className={`border bg-foodHubOrange rounded-md hover:cursor-pointer py-2 px-3 ${width} ${height}`}
-    >
-      {value}
-    </Link>
-  );
+function ButtonInput({  value, width, height  }: ButtonInput) {
+    return (
+        <button className={` border-black shadow-md bg-foodHubOrange rounded-md hover:cursor-pointer ${width} ${height}`}>{value}</button>
+    )
 }
-
-export default Button;
+export default ButtonInput
