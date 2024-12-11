@@ -1,42 +1,48 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import NumberInput from "../../Utilities/NumberInput";
-import Textarea from "../../Utilities/Textarea";
 import TextInput from "../../Utilities/TextInput";
 import SubmitInput from "../../Utilities/SubmitInput";
 import Header from "../../Components/Header";
 import BASE_URL from "../../settings";
+import Textarea from "../../Utilities/TextArea";
+import UserContext from "../../Contexts/UserContext";
 
-async function addRecipe(formData: FormData) {
-  let data = {
-    name: formData.get("name"),
-    instructions: formData.get("instructions"),
-    prep_time: formData.get("prep_time"),
-    cook_time: formData.get("cook_time"),
-  };
-  try {
-    const response = await fetch(`${BASE_URL}/users/recipes`, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+function AddRecipe() {
+  const { userId } = useContext(UserContext);
 
-    if (response.ok) {
-      const responseData = await response.json();
-      console.log(responseData.message);
-    } else {
-      console.error("Error:", response.status, response.statusText);
+  async function addRecipeData(formData: FormData) {
+    let data = {
+      name: formData.get("name"),
+      instructions: formData.get("instructions"),
+      prep_time: formData.get("prep_time"),
+      cook_time: formData.get("cook_time"),
+      ingredients: [1, 2],
+    };
+
+    try {
+      const response = await fetch(`${BASE_URL}/users/1/recipes`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+
+
+      } else {
+        console.error("Error:", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.log("error");
     }
-  } catch (error) {
-    console.log("error");
   }
-
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-
-    return formData;
+    addRecipeData(formData);
   }
 
   return (
@@ -52,7 +58,7 @@ async function addRecipe(formData: FormData) {
           />
           <Textarea
             title="Cooking instructions"
-            name="intructions"
+            name="instructions"
             id="instructions"
           />
           <div className="flex space-x-4">
@@ -66,4 +72,4 @@ async function addRecipe(formData: FormData) {
   );
 }
 
-export default addRecipe;
+export default AddRecipe;
