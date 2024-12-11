@@ -1,22 +1,17 @@
 import { useState } from "react";
-import "./App.css";
 import UserContext from "./Contexts/UserContext";
 import Login from "./Pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AllRecipes from "./Pages/AllRecipes";
 import NotFound from "./Pages/NotFound";
-import Header from "./Components/Header";
-import SingleRecipe from "./Pages/SingleRecipe";
 
 function App() {
   const [currentUserId, setUserId] = useState(0);
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <Header title="FoodHub" />
-
       <UserContext.Provider
-        value={{ userId: currentUserId, changeUserID: setUserId }}
+        value={{ userId: currentUserId, changeUserId: setUserId }}
       >
         <BrowserRouter>
           <Routes>
