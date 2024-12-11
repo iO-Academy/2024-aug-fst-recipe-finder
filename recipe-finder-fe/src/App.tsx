@@ -1,11 +1,9 @@
 import { useState } from "react";
-import "./App.css";
 import UserContext from "./Contexts/UserContext";
 import Login from "./Pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AllRecipes from "./Pages/AllRecipes";
 import NotFound from "./Pages/NotFound";
-import Header from "./Components/Header";
 
 function App() {
   const [currentUserId, setUserId] = useState(0);
