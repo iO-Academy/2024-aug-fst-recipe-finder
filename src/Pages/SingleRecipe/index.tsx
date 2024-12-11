@@ -1,15 +1,14 @@
-// import SubmitInput from "../../Utilities/SubmitInput";
-interface RecipeCardProps {
-    name: string;
-    time: string;
-  }
+import Header from "../../Components/Header";
+import ButtonInput from "../../Utilities/ButtonInput";
+
   
-  function SingleRecipe(name, time):RecipeCardProps {
+  function SingleRecipe(){
     return ( 
-      <div className="border-4 border-solid border-black rounded-lg w-screen mt-20 file:my-auto mx-auto max-w-md px-4">
+      <><Header title="Single Recipe" /><div className="border-4 border-solid border-black rounded-lg w-screen mt-20 file:my-auto mx-auto max-w-md px-4">
         <div className="">
-          <a href="/"><button className="inline-flex rounded-lg bg-[#e27d08] w-1/8 p-2 text-center font-bold mx-2">Back</button></a>
-          <div className="inline-flex border-2 border-solid border-black rounded-lg w-7/8 p-2 text-center font-bold mx-16 my-4">Single Recipe</div>
+          <a href="/"><ButtonInput value={"Back"} width={"w-20"} height={"h-10"}></ButtonInput></a>
+          {/* <a href="/"><button className="inline-flex rounded-lg bg-[#e27d08] w-1/8 p-2 text-center font-bold mx-2">Back</button></a> */}
+          <div className="inline-flex border-2 border-solid border-black rounded-lg mx-16 p-2 text-center font-bold my-4">Single Recipe</div>
         </div>
         <div id="recipecard" className=" p-2 text-center font-bold my-4">
           <div className="border-2 border-solid border-black rounded-lg p-2 text-center font-bold my-4">Recipe Name</div>
@@ -20,7 +19,7 @@ interface RecipeCardProps {
           <div id="ingredients" className="border-2 border-solid border-black rounded-lg p-2 text-center font-bold my-4">Ingredient1</div>
           <div id="instructions" className="border-2 border-solid border-black rounded-lg p-2 text-center font-bold my-4">Instructions</div>
         </div>
-      </div>
+      </div></>
     );
   }
   
