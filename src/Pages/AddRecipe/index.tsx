@@ -5,33 +5,21 @@ import TextInput from "../../Utilities/TextInput";
 import SubmitInput from "../../Utilities/SubmitInput";
 import Header from "../../Components/Header";
 
-
 export default function AddRecipe() {
-
-  const [recipeName, setRecipeName] = useState("");
-  const [instructions, setInstructions] = useState("");
-  const [prepTime, setPrepTime] = useState("");
-  const [cookTime, setCookTime] = useState("");
-
+  const [recipe, setRecipe] = useState({});
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
-  
     const formData = {
-      recipeName,
-      instructions,
-      prepTime,
-      cookTime,
+     recipe,
     };
     console.log(formData);
-    
-  }
-
+  };
 
   return (
     <>
-    <Header title="Add Recipe" />
+      <Header title="Add Recipe" />
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className="w-full px-5 mt-4">
           <TextInput
@@ -56,4 +44,3 @@ export default function AddRecipe() {
     </>
   );
 }
-
