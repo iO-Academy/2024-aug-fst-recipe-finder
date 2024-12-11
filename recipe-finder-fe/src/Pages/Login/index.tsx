@@ -25,8 +25,12 @@ function Login() {
       const responseData = await response.json();
       if (response.ok) {
         changeUserId(responseData.data.userId);
+      } else {
+        console.log(responseData.message);
       }
-    } catch {}
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -63,6 +67,8 @@ function Login() {
             id="email"
             className="border border-slate-400 rounded-md"
             name="email"
+            minLength={6}
+            required
           />
           <SubmitInput value="Log In" />
         </form>
