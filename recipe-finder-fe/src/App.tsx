@@ -16,7 +16,7 @@ function App() {
       <Header title="FoodHub" />
 
       <UserContext.Provider
-        value={{ userId: currentUserId, changeUserID: setUserId }}
+        value={{ userId: currentUserId, changeUserId: setUserId }}
       >
         <BrowserRouter>
           <Routes>

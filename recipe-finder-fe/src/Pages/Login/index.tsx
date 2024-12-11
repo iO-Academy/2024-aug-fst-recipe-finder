@@ -1,7 +1,50 @@
+import { FormEvent, useContext, useEffect } from "react";
 import Header from "../../Components/Header";
+import UserContext from "../../Contexts/UserContext";
 import SubmitInput from "../../Utilities/SubmitInput";
+import BASE_URL from "../../settings";
+import { useNavigate } from "react-router";
 
 function Login() {
+  const { userId, changeUserId } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  async function userSignIn(formData: FormData) {
+    let data = {
+      email: formData.get("email"),
+    };
+
+    try {
+      const response = await fetch(`${BASE_URL}/users`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const responseData = await response.json();
+      if (response.ok) {
+        changeUserId(responseData.data.userId);
+      } else {
+        console.log(responseData.message);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    userSignIn(formData);
+  }
+
+  useEffect(() => {
+    if (userId) {
+      navigate(`/recipes/${userId}`);
+    }
+  }, [userId]);
+
   return (
     <>
       <Header title="FoodHub" />
@@ -16,12 +59,16 @@ function Login() {
         <form
           action=""
           className="flex flex-col mx-auto border border-black rounded-md p-4 gap-2 max-w-sm"
+          onSubmit={handleSubmit}
         >
           <label htmlFor="email">Email Address:</label>
           <input
             type="email"
             id="email"
             className="border border-slate-400 rounded-md"
+            name="email"
+            minLength={6}
+            required
           />
           <SubmitInput value="Log In" />
         </form>
