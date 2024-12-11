@@ -9,9 +9,8 @@ interface TextInputProps {
 export default function TextInput({
   name,
   id,
-  placeholder,
   title,
-  required
+  required,
 }: TextInputProps) {
   return (
     <>
@@ -21,7 +20,6 @@ export default function TextInput({
           type="text"
           name={name}
           id={id}
-          placeholder={placeholder ?? ""}
           className="w-full border-2 rounded-lg px-2 py-2 text-sm mt-1"
           required={required}
         />

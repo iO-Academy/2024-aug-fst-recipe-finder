@@ -3,6 +3,8 @@ import NumberInput from "../../Utilities/NumberInput";
 import Textarea from "../../Utilities/Textarea";
 import TextInput from "../../Utilities/TextInput";
 import SubmitInput from "../../Utilities/SubmitInput";
+import Header from "../../Components/Header";
+
 
 export default function AddRecipe() {
 
@@ -29,6 +31,7 @@ export default function AddRecipe() {
 
   return (
     <>
+    <Header title="Add Recipe" />
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className="w-full px-5 mt-4">
           <TextInput

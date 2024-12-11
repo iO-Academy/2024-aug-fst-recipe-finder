@@ -4,6 +4,7 @@ import Login from "./Pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AllRecipes from "./Pages/AllRecipes";
 import NotFound from "./Pages/NotFound";
+import AddRecipe from "./Pages/AddRecipe";
 
 function App() {
   const [currentUserId, setUserId] = useState(0);
@@ -21,7 +22,7 @@ function App() {
               element={<AllRecipes></AllRecipes>}
             />
             <Route path="*" element={<NotFound />} />
-
+            <Route path="/addrecipe" element={<AddRecipe />} />
           </Routes>
         </BrowserRouter>
 
