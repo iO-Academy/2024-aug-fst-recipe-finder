@@ -40,7 +40,7 @@ function Login() {
   }
 
   useEffect(() => {
-    if (userId) {
+    if (userId > 0) {
       navigate(`/recipes/${userId}`);
     }
   }, [userId]);
