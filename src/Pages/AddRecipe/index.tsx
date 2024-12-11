@@ -49,19 +49,19 @@ function AddRecipe() {
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className="w-full px-5 mt-4">
           <TextInput
-            title="Recipe name"
+            title="Recipe name:"
             name="name"
             id="addrecipe"
             placeholder="enter recipe name"
           />
           <Textarea
-            title="Cooking instructions"
+            title="Cooking instructions:"
             name="instructions"
             id="instructions"
           />
           <div className="flex space-x-4 mb-4">
-            <NumberInput title="Prep time" name="prep_time" id="preptime" />
-            <NumberInput title="Cook time" name="cook_time" id="cooktime" />
+            <NumberInput title="Prep time mins:" name="prep_time" id="preptime" />
+            <NumberInput title="Cook time mins:" name="cook_time" id="cooktime" />
           </div>
           <SubmitInput value="add recipe" />
         </div>
