@@ -7,7 +7,7 @@ interface RecipeCardProps {
   export default function RecipeCard({ name, time }: RecipeCardProps) {
     return (
       <>
-        <div className="flex w-10/12 shadow-md py-8 mx-auto justify-center md:justify-between px-20 bg-white rounded-md my-3 md:py-12 md:text-3xl lg:py-10 lg:w-7/12">
+        <div className="flex w-10/12 shadow-md py-8 mx-auto justify-center md:justify-between md:px-20 bg-white rounded-md my-3 md:py-12 md:text-3xl lg:py-10 lg:w-7/12">
           <h2 className="mr-9 ">{name}</h2>
           <div className="flex items-center">
             <span>
