@@ -1,8 +1,8 @@
-interface HeaderProp {
+interface HeaderProps {
   title: string;
 }
 
-export default function Header({ title }: HeaderProp) {
+export default function Header({ title }: HeaderProps) {
   return (
     <>
       <section className="w-full">
