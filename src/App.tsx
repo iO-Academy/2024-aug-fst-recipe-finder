@@ -4,6 +4,7 @@ import Login from "./Pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AllRecipes from "./Pages/AllRecipes";
 import NotFound from "./Pages/NotFound";
+import SingleRecipe from "./Pages/SingleRecipe";
 
 function App() {
   const [currentUserId, setUserId] = useState(0);
