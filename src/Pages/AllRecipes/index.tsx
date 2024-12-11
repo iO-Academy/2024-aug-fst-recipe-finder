@@ -3,6 +3,8 @@ import Header from "../../Components/Header";
 import BASE_URL from "../../settings";
 import UserContext from "../../Contexts/UserContext";
 import RecipeCard from "../../Components/RecipeCard";
+import { Link } from "react-router";
+import ButtonInput from "../../Utilities/ButtonInput";
 
 interface Recipes {
   id: number;
@@ -25,15 +27,16 @@ export default function AllRecipes() {
   useEffect(() => {
     getRecipes(setRecipes);
   }, []);
-  
+
   return (
     <>
       <Header title="All Recipes" />
-      {
-        recipes.map( (recipe) => 
-          <RecipeCard key={recipe.id} name={recipe.name} time={recipe.duration} />
-        )
-      } 
+      <Link className="my-4 mx-auto" to="/addrecipe"><ButtonInput value={"Add Recipe"} width="w-96" height="h-20" /></Link>
+        {
+          recipes.map((recipe) =>
+            <Link to={`/recipe/${recipe.id}`} ><RecipeCard key={recipe.id} name={recipe.name} time={recipe.duration} /></Link>
+          )
+        }
     </>
   );
 }

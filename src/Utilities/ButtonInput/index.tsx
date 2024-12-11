@@ -6,7 +6,7 @@ interface ButtonInput {
 
 function ButtonInput({  value, width, height  }: ButtonInput) {
     return (
-        <button className={`border bg-foodHubOrange rounded-md hover:cursor-pointer ${width} ${height}`}>{value}</button>
+        <button className={` border-black shadow-md bg-foodHubOrange rounded-md hover:cursor-pointer ${width} ${height}`}>{value}</button>
     )
 }
 
