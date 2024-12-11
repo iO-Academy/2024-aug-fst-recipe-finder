@@ -1,7 +1,7 @@
 
 interface RecipeCardProps {
     name: string;
-    time: string;
+    time: number;
   }
   
   export default function RecipeCard({ name, time }: RecipeCardProps) {
