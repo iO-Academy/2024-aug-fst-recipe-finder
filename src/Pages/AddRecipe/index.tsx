@@ -48,9 +48,7 @@ function AddRecipe() {
   return (
     <>
       <Header title="Add Recipe" />
-      <div>
-        <Button value="<< All recipes" page={`/recipes/${userId}`} />
-      </div>
+      
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className="w-full px-5 mt-4">
           <TextInput
