@@ -16,7 +16,7 @@ function AddRecipe() {
       instructions: formData.get("instructions"),
       prep_time: formData.get("prep_time"),
       cook_time: formData.get("cook_time"),
-      ingredients: [1, 2],
+      ingredients: [1, 2], //hardcoded until story4
     };
 
     try {
@@ -29,14 +29,12 @@ function AddRecipe() {
       });
 
       if (response.ok) {
-        const responseData = await response.json();
-
-
+        console.log("Successfully added recipe");
       } else {
         console.error("Error:", response.status, response.statusText);
       }
     } catch (error) {
-      console.log("error");
+      console.log("Error adding recipe");
     }
   }
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -61,7 +59,7 @@ function AddRecipe() {
             name="instructions"
             id="instructions"
           />
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 mb-4">
             <NumberInput title="Prep time" name="prep_time" id="preptime" />
             <NumberInput title="Cook time" name="cook_time" id="cooktime" />
           </div>
