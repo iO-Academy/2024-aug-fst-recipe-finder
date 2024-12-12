@@ -52,12 +52,14 @@ function SingleRecipe() {
               <Button value={"Back"} width={"w-20"} height={"h-10"}></Button>
             </Link>
           </div>
-          <h1 className="text-3xl">{recipe.name} Recipe Title</h1>
-          <div className="flex justify-center gap-8 mb-10 mt-4">
-            <p>Prep Time: {recipe.prep_time} minutes</p>
-            <p>Cooking Time: {recipe.cook_time} minutes</p>
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-3xl">{recipe.name} Recipe Title</h1>
+            <div className="flex justify-center gap-8 mb-10 mt-4">
+              <p>Prep Time: {recipe.prep_time} min(s)</p>
+              <p>Cooking Time: {recipe.cook_time} min(s)</p>
+            </div>
+            <p className="text-left">{recipe.instructions}</p>
           </div>
-          <p className="text-left">{recipe.instructions}</p>
         </div>
       </div>
     </>
