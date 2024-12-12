@@ -23,11 +23,11 @@ function AddRecipe() {
       instructions: formData.get("instructions"),
       ingredients: [],
     };
-    if (formData.get("prep_time") != "" && Number(formData.get("prep_time")) >0 ) {
-      data.prep_time = Number(formData.get("prep_time"));
+    if (formData.get("prep_time") != "") {
+      data.prep_time = Math.floor(Number(formData.get("prep_time")));
     }
-    if (formData.get("cook_time") != "" && Number(formData.get("cook_time")) >0 ) {
-      data.cook_time = Number(formData.get("cook_time"));
+    if (formData.get("cook_time") != "") {
+      data.cook_time = Math.floor(Number(formData.get("cook_time")));
     }
 
     try {
