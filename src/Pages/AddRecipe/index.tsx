@@ -79,14 +79,14 @@ function AddRecipe() {
           />
           <div className="flex space-x-4 mb-4">
             <NumberInput
-              title="Prep time mins:"
+              title="Prep time in minutes:"
               name="prep_time"
               id="preptime"
               min="0"
               max="5256000"
             />
             <NumberInput
-              title="Cook time mins:"
+              title="Cook time in minutes:"
               name="cook_time"
               id="cooktime"
               min="0"
