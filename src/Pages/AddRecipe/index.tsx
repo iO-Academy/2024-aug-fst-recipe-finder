@@ -10,18 +10,22 @@ import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
 import TextAreaInput from "../../Utilities/TextArea";
 
+interface Ingredients {
+  id: number;
+}
+
 function AddRecipe() {
   const { userId } = useContext(UserContext);
   const navigate = useNavigate();
-  const [ingredients, setIngredients] = useState([]);
-console.log(userId)
+  const [ingredients, setIngredients] = useState<Ingredients[]>([]);
+
   async function addRecipeData(formData: FormData) {
     let data = {
       name: formData.get("name"),
       instructions: formData.get("instructions"),
       prep_time: formData.get("prep_time"),
       cook_time: formData.get("cook_time"),
-      ingredients: [],
+      ingredients: ingredients,
     };
 
     try {
@@ -35,7 +39,7 @@ console.log(userId)
 
       if (response.ok) {
         console.log("Successfully added recipe");
-        navigate(`/recipes/${userId}`);
+        navigate(`/${userId}`);
       } else {
         console.error("Error:", response.status, response.statusText);
       }
@@ -55,7 +59,7 @@ console.log(userId)
     };
 
     try {
-      const response = await fetch(`${BASE_URL}/users/1/ingredient`, {
+      const response = await fetch(`${BASE_URL}/users/1/ingredients`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -66,8 +70,8 @@ console.log(userId)
       const responseData = await response.json();
       if (response.ok) {
         console.log("Successfully added ingredient");
-        setIngredients(responseData.data.id);
-        console.log(ingredients)
+        setIngredients([...ingredients, responseData.data.id]);
+        console.log(ingredients);
       } else {
         console.error("Error:", response.status, response.statusText);
       }
@@ -115,13 +119,12 @@ console.log(userId)
               id="cooktime"
               required={true}
             />
-
           </div>
           <SubmitInput value="Add recipe" />
         </div>
       </form>
       <form action="" method="post" onSubmit={handleIngredientSubmit}>
-          <div className="flex space-x-4 mb-4">
+        <div className="flex space-x-4 mb-4">
           <TextInput
             title="Add ingredients:"
             name="ingredient"
@@ -130,7 +133,7 @@ console.log(userId)
             required={false}
           />
           <SubmitInput value="+" />
-          </div>
+        </div>
       </form>
     </>
   );
