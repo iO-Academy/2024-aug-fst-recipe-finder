@@ -1,4 +1,4 @@
-import { FormEvent, useContext } from "react";
+import { FormEvent, useContext, useState } from "react";
 import NumberInput from "../../Utilities/NumberInput";
 import TextInput from "../../Utilities/TextInput";
 import SubmitInput from "../../Utilities/SubmitInput";
@@ -13,6 +13,7 @@ import TextAreaInput from "../../Utilities/TextArea";
 function AddRecipe() {
   const { userId } = useContext(UserContext);
   const navigate = useNavigate();
+  const [ingredients, setIngredients] = useState([]);
 console.log(userId)
   async function addRecipeData(formData: FormData) {
     let data = {
@@ -62,8 +63,11 @@ console.log(userId)
         },
       });
 
+      const responseData = await response.json();
       if (response.ok) {
         console.log("Successfully added ingredient");
+        setIngredients(responseData.data.id);
+        console.log(ingredients)
       } else {
         console.error("Error:", response.status, response.statusText);
       }
