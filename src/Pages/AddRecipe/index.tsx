@@ -45,7 +45,7 @@ function AddRecipe() {
       });
       if (response.ok) {
         console.log("Successfully added recipe");
-        navigate(`/${userId}`);
+        navigate(`/recipes/${userId}`);
       } else {
         let data = await response.json();
         setMessage(data.message);
