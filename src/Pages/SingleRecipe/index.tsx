@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import BASE_URL from "../../settings";
-import ButtonInput from "../../Utilities/ButtonInput";
 import UserContext from "../../Contexts/UserContext";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
+import Button from "../../Utilities/Button";
 
 interface Recipe{
     name: string,
@@ -20,7 +20,7 @@ interface Recipe{
     async function getSingleRecipe(
       stateSetter: React.Dispatch<React.SetStateAction<Recipe>>
     ) {
-      const data = await fetch(`${BASE_URL}/users/1/recipes/${recipeId}`,{
+      const data = await fetch(`${BASE_URL}/users/${userId}/recipes/${recipeId}`,{
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +40,7 @@ interface Recipe{
     return ( 
       <><Header title="FoodHub" /><div className="border-4 border-solid border-black rounded-lg w-screen mt-20 file:my-auto mx-auto max-w-md px-4">
         <div className="">
-          <a href="/"><ButtonInput value={"Back"} width={"w-20"} height={"h-10"}></ButtonInput></a>
+          <Link to="/"><Button value={"Back"} width={"w-20"} height={"h-10"}></Button></Link>
           {/* <a href="/"><button className="inline-flex rounded-lg bg-[#e27d08] w-1/8 p-2 text-center font-bold mx-2">Back</button></a> */}
           <div className="inline-flex border-2 border-solid border-black rounded-lg mx-16 p-2 text-center font-bold my-4">Single Recipe</div>
         </div>

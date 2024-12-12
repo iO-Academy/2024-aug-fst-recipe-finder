@@ -4,7 +4,8 @@ import BASE_URL from "../../settings";
 import UserContext from "../../Contexts/UserContext";
 import RecipeCard from "../../Components/RecipeCard";
 import { Link } from "react-router";
-import ButtonInput from "../../Utilities/ButtonInput";
+import Button from "../../Utilities/Button";
+
 
 interface Recipes {
   id: number;
@@ -31,7 +32,7 @@ export default function AllRecipes() {
   return (
     <>
       <Header title="All Recipes" />
-      <Link className="my-4 mx-auto" to="/addrecipe"><ButtonInput value={"Add Recipe"} width="md:w-96 w-48" height="md:h-20 h-10" /></Link>
+      <Link className="my-4 mx-auto" to="/addrecipe"><Button value={"Add Recipe"} width="md:w-96 w-48" height="md:h-20 h-10" /></Link>
         {
           recipes.map((recipe) =>
             <Link to={`/recipe/${recipe.id}`} ><RecipeCard key={recipe.id} name={recipe.name} time={recipe.duration} /></Link>

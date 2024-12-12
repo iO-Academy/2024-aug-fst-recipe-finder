@@ -24,7 +24,7 @@ function App() {
             />
             <Route path="*" element={<NotFound />} />
             <Route path="/addrecipe" element={<AddRecipe />} />
-            <Route path="/singlerecipe/:recipeId" element={<SingleRecipe></SingleRecipe>} />
+            <Route path="/recipe/:recipeId" element={<SingleRecipe></SingleRecipe>} />
           </Routes>
         </BrowserRouter>
 
