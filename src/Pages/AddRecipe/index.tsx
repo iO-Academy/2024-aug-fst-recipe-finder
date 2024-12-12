@@ -82,11 +82,15 @@ function AddRecipe() {
               title="Prep time mins:"
               name="prep_time"
               id="preptime"
+              min="0"
+              max="5256000"
             />
             <NumberInput
               title="Cook time mins:"
               name="cook_time"
               id="cooktime"
+              min="0"
+              max="5256000"
             />
           </div>
           <p className="text-red-600">{message}</p>
