@@ -41,7 +41,7 @@ function Login() {
 
   useEffect(() => {
     if (userId) {
-      navigate(`/recipes/${userId}`);
+      navigate(`/${userId}`);
     }
   }, [userId]);
 
