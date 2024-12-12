@@ -20,7 +20,7 @@ function AddRecipe() {
       instructions: formData.get("instructions"),
       prep_time: formData.get("prep_time"),
       cook_time: formData.get("cook_time"),
-      ingredients: [],
+      ingredients: []
     };
 
     try {

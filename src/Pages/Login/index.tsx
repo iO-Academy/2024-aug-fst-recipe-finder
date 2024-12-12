@@ -15,6 +15,8 @@ function Login() {
     };
 
     try {
+      console.log(data);
+
       const response = await fetch(`${BASE_URL}/users`, {
         method: "POST",
         body: JSON.stringify(data),
@@ -42,6 +44,8 @@ function Login() {
   useEffect(() => {
     if (userId) {
       navigate(`/recipes/${userId}`);
+    } else {
+      console.log("Error: Unable to get current user ID");
     }
   }, [userId]);
 
