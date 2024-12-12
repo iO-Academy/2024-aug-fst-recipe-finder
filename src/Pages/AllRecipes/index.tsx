@@ -2,6 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import BASE_URL from "../../settings";
 import UserContext from "../../Contexts/UserContext";
+import RecipeCard from "../../Components/RecipeCard";
+import { Link } from "react-router";
+import ButtonInput from "../../Utilities/ButtonInput";
 
 interface Recipes {
   id: number;
@@ -13,23 +16,27 @@ export default function AllRecipes() {
   const [recipes, setRecipes] = useState<Recipes[]>([]);
   const { userId } = useContext(UserContext);
 
-  async function getRecipe(
-    stateSetter: React.Dispatch<React.SetStateAction<Recipes[]>>
+  async function getRecipes(
+    setRecipes: React.Dispatch<React.SetStateAction<Recipes[]>>
   ) {
     const json = await fetch(`${BASE_URL}/users/${userId}/recipes`);
     const recipe = await json.json();
-    stateSetter(recipe.data);
+    setRecipes(recipe.data);
   }
 
   useEffect(() => {
-    getRecipe(setRecipes);
-  });
-
-  console.log(recipes);
+    getRecipes(setRecipes);
+  }, []);
 
   return (
     <>
       <Header title="All Recipes" />
+      <Link className="my-4 mx-auto" to="/addrecipe"><ButtonInput value={"Add Recipe"} width="md:w-96 w-48" height="md:h-20 h-10" /></Link>
+        {
+          recipes.map((recipe) =>
+            <Link to={`/recipe/${recipe.id}`} ><RecipeCard key={recipe.id} name={recipe.name} time={recipe.duration} /></Link>
+          )
+        }
     </>
   );
 }

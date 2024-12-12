@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AllRecipes from "./Pages/AllRecipes";
 import NotFound from "./Pages/NotFound";
 import AddRecipe from "./Pages/AddRecipe";
-
 import SingleRecipe from "./Pages/SingleRecipe";
 
 function App() {
