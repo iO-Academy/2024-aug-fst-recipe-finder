@@ -123,18 +123,20 @@ function AddRecipe() {
           <SubmitInput value="Add recipe" />
         </div>
       </form>
-      <form action="" method="post" onSubmit={handleIngredientSubmit}>
-        <div className="flex space-x-4 mb-4">
-          <TextInput
-            title="Add ingredients:"
-            name="ingredient"
-            id="addingredient"
-            placeholder="enter ingredient name"
-            required={false}
-          />
-          <SubmitInput value="+" />
-        </div>
-      </form>
+      <div className="w-full px-5 mt-4">
+        <form action="" method="post" onSubmit={handleIngredientSubmit}>
+          <div className="flex space-x-4 mb-4">
+            <TextInput
+              title="Add ingredients:"
+              name="ingredient"
+              id="addingredient"
+              placeholder="enter ingredient name"
+              required={false}
+            />
+            <SubmitInput value="+" />
+          </div>
+        </form>
+      </div>
     </>
   );
 }
