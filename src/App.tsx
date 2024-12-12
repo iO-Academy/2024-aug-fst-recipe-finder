@@ -19,7 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login></Login>} />
             <Route
-              path="recipes/:currentUserId"
+              path=":currentUserId"
               element={<AllRecipes></AllRecipes>}
             />
             <Route path="*" element={<NotFound />} />
