@@ -31,7 +31,6 @@ function AddRecipe() {
           "Content-Type": "application/json",
         },
       });
-
       if (response.ok) {
         console.log("Successfully added recipe");
         navigate(`/recipes/${userId}`);
@@ -90,3 +89,4 @@ function AddRecipe() {
 }
 
 export default AddRecipe;
+

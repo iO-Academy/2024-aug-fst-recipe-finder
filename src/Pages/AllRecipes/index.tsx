@@ -27,12 +27,12 @@ export default function AllRecipes() {
 
   useEffect(() => {
     getRecipes(setRecipes);
-  }, []);
+  }, [userId]);
 
   return (
     <>
       <Header title="All Recipes" />
-      <Link className="my-4 mx-auto" to="/addrecipe"><Button value={"Add Recipe"} width="md:w-96 w-48" height="md:h-20 h-10" /></Link>
+      <Link className="my-4 mx-auto" to={`/addrecipe/${userId}`}><Button value={"Add Recipe"} width="md:w-96 w-48" height="md:h-20 h-10" /></Link>
         {
           recipes.map((recipe) =>
             <Link to={`/recipe/${recipe.id}`} ><RecipeCard key={recipe.id} name={recipe.name} time={recipe.duration} /></Link>
