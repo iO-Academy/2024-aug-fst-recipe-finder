@@ -9,30 +9,24 @@ import Button from "../../Utilities/Button";
 import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
 import TextAreaInput from "../../Utilities/TextArea";
-import { string } from "prop-types";
 
 function AddRecipe() {
   const { userId } = useContext(UserContext);
   const navigate = useNavigate();
 
   async function addRecipeData(formData: FormData) {
-    let data = {};
+    let data = {
+      prep_time: 0,
+      cook_time: 0,
+      name: formData.get("name"),
+      instructions: formData.get("instructions"),
+      ingredients: [],
+    };
     if (formData.get("prep_time") != "") {
-      data = {
-        name: formData.get("name"),
-        instructions: formData.get("instructions"),
-        prep_time: formData.get("prep_time"),
-        cook_time: formData.get("cook_time"),
-        ingredients: [],
-      };
-    } else {
-      data = {
-        name: formData.get("name"),
-        instructions: formData.get("instructions"),
-        cook_time: formData.get("cook_time"),
-        prep_time: "0",
-        ingredients: [],
-      };
+      data.prep_time = Number(formData.get("prep_time"));
+    }
+    if (formData.get("cook_time") != "") {
+      data.cook_time = Number(formData.get("cook_time"));
     }
 
     try {
@@ -53,6 +47,7 @@ function AddRecipe() {
       console.log("Error adding recipe");
     }
   }
+
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -90,7 +85,6 @@ function AddRecipe() {
               title="Cook time mins:"
               name="cook_time"
               id="cooktime"
-              required={true}
             />
           </div>
           <SubmitInput value="Add recipe" />
@@ -99,5 +93,4 @@ function AddRecipe() {
     </>
   );
 }
-
 export default AddRecipe;
