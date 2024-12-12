@@ -3,17 +3,20 @@ interface TextInputProps {
   id: string;
   placeholder?: string;
   required?: boolean;
+  title?: string;
 }
 
 export default function TextInput({
   name,
   id,
   required,
-  placeholder
+  placeholder,
+  title
 }: TextInputProps) {
   return (
     <>
       <label htmlFor={id}>
+        {title}
         <input
           name={name}
           id={id}
