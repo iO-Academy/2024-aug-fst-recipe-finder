@@ -8,11 +8,11 @@ import Textarea from "../../Utilities/TextArea";
 import UserContext from "../../Contexts/UserContext";
 import Button from "../../Utilities/Button";
 import { Link } from "react-router";
-
+import { useNavigate } from "react-router-dom";
 
 function AddRecipe() {
-    const { userId } = useContext(UserContext);
-
+  const { userId } = useContext(UserContext);
+  const navigate = useNavigate();
 
   async function addRecipeData(formData: FormData) {
     let data = {
@@ -20,7 +20,7 @@ function AddRecipe() {
       instructions: formData.get("instructions"),
       prep_time: formData.get("prep_time"),
       cook_time: formData.get("cook_time"),
-      ingredients: [1, 2], //hardcoded until story4
+      ingredients: [],
     };
 
     try {
@@ -34,6 +34,7 @@ function AddRecipe() {
 
       if (response.ok) {
         console.log("Successfully added recipe");
+        navigate(`/recipes/${userId}`);
       } else {
         console.error("Error:", response.status, response.statusText);
       }
@@ -50,7 +51,9 @@ function AddRecipe() {
   return (
     <>
       <Header title="Add Recipe" />
-      <Link className="ml-5 mt-4" to={`/recipes/${userId}`}><Button value="Back" width="w-20" height="h-10"/></Link>
+      <Link className="ml-5 mt-4" to={`/recipes/${userId}`}>
+        <Button value="Back" width="w-20" height="h-10" />
+      </Link>
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className="w-full px-5 mt-4">
           <TextInput
