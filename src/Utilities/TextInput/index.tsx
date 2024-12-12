@@ -11,6 +11,7 @@ export default function TextInput({
   id,
   title,
   required,
+  placeholder
 }: TextInputProps) {
   return (
     <>
@@ -22,6 +23,7 @@ export default function TextInput({
           id={id}
           className="w-full border-2 rounded-lg px-2 py-2 text-sm mt-1"
           required={required}
+          placeholder={placeholder ?? ""}
         />
       </label>
     </>
