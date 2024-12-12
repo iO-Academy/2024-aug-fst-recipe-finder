@@ -7,18 +7,18 @@ import { Link } from "react-router";
 import Button from "../../Utilities/Button";
 
 
-interface Recipes {
+interface RecipeSummary {
   id: number;
   name: string;
   duration: number;
 }
 
 export default function AllRecipes() {
-  const [recipes, setRecipes] = useState<Recipes[]>([]);
+  const [recipes, setRecipes] = useState<RecipeSummary[]>([]);
   const { userId } = useContext(UserContext);
 
   async function getRecipes(
-    setRecipes: React.Dispatch<React.SetStateAction<Recipes[]>>
+    setRecipes: React.Dispatch<React.SetStateAction<RecipeSummary[]>>
   ) {
     const json = await fetch(`${BASE_URL}/users/${userId}/recipes`);
     const recipe = await json.json();
