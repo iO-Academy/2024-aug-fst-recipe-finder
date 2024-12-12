@@ -13,7 +13,7 @@ import TextAreaInput from "../../Utilities/TextArea";
 function AddRecipe() {
   const { userId } = useContext(UserContext);
   const navigate = useNavigate();
-
+console.log(userId)
   async function addRecipeData(formData: FormData) {
     let data = {
       name: formData.get("name"),
@@ -46,6 +46,36 @@ function AddRecipe() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     addRecipeData(formData);
+  }
+
+  async function addIngredientData(formData: FormData) {
+    let data = {
+      name: formData.get("ingredient"),
+    };
+
+    try {
+      const response = await fetch(`${BASE_URL}/users/1/ingredient`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        console.log("Successfully added ingredient");
+      } else {
+        console.error("Error:", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.log("Error adding ingredient");
+    }
+  }
+
+  function handleIngredientSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    addIngredientData(formData);
   }
 
   return (
@@ -81,9 +111,22 @@ function AddRecipe() {
               id="cooktime"
               required={true}
             />
+
           </div>
           <SubmitInput value="Add recipe" />
         </div>
+      </form>
+      <form action="" method="post" onSubmit={handleIngredientSubmit}>
+          <div className="flex space-x-4 mb-4">
+          <TextInput
+            title="Add ingredients:"
+            name="ingredient"
+            id="addingredient"
+            placeholder="enter ingredient name"
+            required={false}
+          />
+          <SubmitInput value="+" />
+          </div>
       </form>
     </>
   );
