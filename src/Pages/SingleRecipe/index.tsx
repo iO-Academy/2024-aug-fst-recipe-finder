@@ -25,15 +25,7 @@ function SingleRecipe() {
   async function getSingleRecipe(
     stateSetter: React.Dispatch<React.SetStateAction<Recipe>>
   ) {
-    const data = await fetch(
-      `${BASE_URL}/users/${userId}/recipes/${recipeId}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const data = await fetch(`${BASE_URL}/users/${userId}/recipes/${recipeId}`);
     const recipe = await data.json();
     const name = recipe.data.name;
     const instructions = recipe.data.instructions;
@@ -55,15 +47,15 @@ function SingleRecipe() {
       <Header title="FoodHub" />
       <div className=" mt-4 px-4 ">
         <div className="max-w-6xl mx-auto text-center bg-amber-700 bg-opacity-15 rounded-md shadow-md p-8 mt-4">
-          <div className="text-left">
+          <div className="text-left mb-4">
             <Link to="/">
               <Button value={"Back"} width={"w-20"} height={"h-10"}></Button>
             </Link>
           </div>
           <h1 className="text-3xl">{recipe.name} Recipe Title</h1>
           <div className="flex justify-center gap-8 mb-10 mt-4">
-            <p>{recipe.prep_time}</p>
-            <p>{recipe.cook_time}</p>
+            <p>Prep Time: {recipe.prep_time} minutes</p>
+            <p>Cooking Time: {recipe.cook_time} minutes</p>
           </div>
           <p className="text-left">{recipe.instructions}</p>
         </div>
