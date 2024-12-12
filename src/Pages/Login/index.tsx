@@ -42,7 +42,7 @@ function Login() {
   }
 
   useEffect(() => {
-    if (userId) {
+    if (userId > 0) {
       navigate(`/recipes/${userId}`);
     } else {
       console.log("Error: Unable to get current user ID");

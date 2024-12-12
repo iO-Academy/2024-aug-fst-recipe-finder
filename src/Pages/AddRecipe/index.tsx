@@ -9,19 +9,31 @@ import Button from "../../Utilities/Button";
 import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
 import TextAreaInput from "../../Utilities/TextArea";
+import { string } from "prop-types";
 
 function AddRecipe() {
   const { userId } = useContext(UserContext);
   const navigate = useNavigate();
 
   async function addRecipeData(formData: FormData) {
-    let data = {
-      name: formData.get("name"),
-      instructions: formData.get("instructions"),
-      prep_time: formData.get("prep_time"),
-      cook_time: formData.get("cook_time"),
-      ingredients: [],
-    };
+    let data = {};
+    if (formData.get("prep_time") != "") {
+      data = {
+        name: formData.get("name"),
+        instructions: formData.get("instructions"),
+        prep_time: formData.get("prep_time"),
+        cook_time: formData.get("cook_time"),
+        ingredients: [],
+      };
+    } else {
+      data = {
+        name: formData.get("name"),
+        instructions: formData.get("instructions"),
+        cook_time: formData.get("cook_time"),
+        prep_time: "0",
+        ingredients: [],
+      };
+    }
 
     try {
       const response = await fetch(`${BASE_URL}/users/${userId}/recipes`, {
@@ -89,4 +101,3 @@ function AddRecipe() {
 }
 
 export default AddRecipe;
-
