@@ -6,6 +6,7 @@ import AllRecipes from "./Pages/AllRecipes";
 import NotFound from "./Pages/NotFound";
 import AddRecipe from "./Pages/AddRecipe";
 
+import SingleRecipe from "./Pages/SingleRecipe";
 
 function App() {
   const [currentUserId, setUserId] = useState(0);
@@ -24,6 +25,7 @@ function App() {
             />
             <Route path="*" element={<NotFound />} />
             <Route path="/addrecipe" element={<AddRecipe />} />
+            <Route path="/singlerecipe/:recipeId" element={<SingleRecipe></SingleRecipe>} />
           </Routes>
         </BrowserRouter>
 
