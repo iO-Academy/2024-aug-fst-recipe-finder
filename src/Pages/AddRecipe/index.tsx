@@ -1,4 +1,4 @@
-import { FormEvent, useContext } from "react";
+import { FormEvent, useContext, useState } from "react";
 import NumberInput from "../../Utilities/NumberInput";
 import TextInput from "../../Utilities/TextInput";
 import SubmitInput from "../../Utilities/SubmitInput";
@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import TextAreaInput from "../../Utilities/TextArea";
 
 function AddRecipe() {
+  const [message, setMessage] = useState("");
   const { userId } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -41,7 +42,8 @@ function AddRecipe() {
         console.log("Successfully added recipe");
         navigate(`/recipes/${userId}`);
       } else {
-        console.error("Error:", response.status, response.statusText);
+        let data = await response.json();
+        setMessage(data.message);
       }
     } catch (error) {
       console.log("Error adding recipe");
@@ -87,10 +89,12 @@ function AddRecipe() {
               id="cooktime"
             />
           </div>
+          <p className="text-red-600">{message}</p>
           <SubmitInput value="Add recipe" />
         </div>
       </form>
     </>
   );
 }
+
 export default AddRecipe;
