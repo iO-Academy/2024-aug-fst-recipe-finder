@@ -15,18 +15,25 @@ interface Ingredients {
 }
 
 function AddRecipe() {
+  const [message, setMessage] = useState("");
   const { userId } = useContext(UserContext);
   const navigate = useNavigate();
   const [ingredients, setIngredients] = useState<Ingredients[]>([]);
 
   async function addRecipeData(formData: FormData) {
     let data = {
+      prep_time: 0,
+      cook_time: 0,
       name: formData.get("name"),
       instructions: formData.get("instructions"),
-      prep_time: formData.get("prep_time"),
-      cook_time: formData.get("cook_time"),
-      ingredients: ingredients,
+      ingredients: [],
     };
+    if (formData.get("prep_time") != "" && Number(formData.get("prep_time")) >0 ) {
+      data.prep_time = Number(formData.get("prep_time"));
+    }
+    if (formData.get("cook_time") != "" && Number(formData.get("cook_time")) >0 ) {
+      data.cook_time = Number(formData.get("cook_time"));
+    }
 
     try {
       const response = await fetch(`${BASE_URL}/users/${userId}/recipes`, {
@@ -36,17 +43,18 @@ function AddRecipe() {
           "Content-Type": "application/json",
         },
       });
-
       if (response.ok) {
         console.log("Successfully added recipe");
         navigate(`/${userId}`);
       } else {
-        console.error("Error:", response.status, response.statusText);
+        let data = await response.json();
+        setMessage(data.message);
       }
     } catch (error) {
       console.log("Error adding recipe");
     }
   }
+
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -109,17 +117,21 @@ function AddRecipe() {
           />
           <div className="flex space-x-4 mb-4">
             <NumberInput
-              title="Prep time mins:"
+              title="Prep time in minutes:"
               name="prep_time"
               id="preptime"
+              min="0"
+              max="5256000"
             />
             <NumberInput
-              title="Cook time mins:"
+              title="Cook time in minutes:"
               name="cook_time"
               id="cooktime"
-              required={true}
+              min="0"
+              max="5256000"
             />
           </div>
+          <p className="text-red-600">{message}</p>
           <SubmitInput value="Add recipe" />
         </div>
       </form>

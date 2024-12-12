@@ -65,7 +65,7 @@ function SingleRecipe() {
             </Link>
           </div>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl">{recipe.name} Recipe Title</h1>
+            <h1 className="text-3xl">{recipe.name}</h1>
             <div className="flex justify-center gap-8 mb-10 mt-4">
               <p>Prep Time: {recipe.prep_time} min(s)</p>
               <p>Cooking Time: {recipe.cook_time} min(s)</p>
