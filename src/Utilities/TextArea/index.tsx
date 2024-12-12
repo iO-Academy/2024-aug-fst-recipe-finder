@@ -1,11 +1,11 @@
-interface TextareaProps {
+interface TextAreaProps {
   name: string;
   id: string;
   title: string;
   required?: boolean;
 }
 
-export default function Textarea({ name, id, title, required }: TextareaProps) {
+export default function TextAreaInput({ name, id, title, required }: TextAreaProps) {
   return (
     <>
       <label htmlFor={id}>

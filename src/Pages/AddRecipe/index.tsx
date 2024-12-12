@@ -4,11 +4,11 @@ import TextInput from "../../Utilities/TextInput";
 import SubmitInput from "../../Utilities/SubmitInput";
 import Header from "../../Components/Header";
 import BASE_URL from "../../settings";
-import Textarea from "../../Utilities/TextArea";
 import UserContext from "../../Contexts/UserContext";
 import Button from "../../Utilities/Button";
 import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
+import TextAreaInput from "../../Utilities/TextArea";
 
 function AddRecipe() {
   const { userId } = useContext(UserContext);
@@ -63,7 +63,7 @@ function AddRecipe() {
             placeholder="enter recipe name"
             required={true}
           />
-          <Textarea
+          <TextAreaInput
             title="Cooking instructions:"
             name="instructions"
             id="instructions"
