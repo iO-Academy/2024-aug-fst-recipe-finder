@@ -10,7 +10,8 @@ interface NumberInputProps {
     name,
     id,
     title,
-    required
+    required,
+    placeholder
   }: NumberInputProps) {
     return (
       <>
@@ -22,6 +23,7 @@ interface NumberInputProps {
             id={id}
             className="w-full border-2 rounded-lg px-2 py-2 text-sm mt-1"
             required={required}
+            placeholder={placeholder}
           />
         </label>
       </>

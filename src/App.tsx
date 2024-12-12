@@ -19,15 +19,14 @@ function App() {
           <Routes>
             <Route path="/" element={<Login></Login>} />
             <Route
-              path=":currentUserId"
+              path="recipes/:currentUserId"
               element={<AllRecipes></AllRecipes>}
             />
-            <Route path="*" element={<NotFound />} />
             <Route path="/addrecipe" element={<AddRecipe />} />
             <Route path="/recipe/:recipeId" element={<SingleRecipe></SingleRecipe>} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-
         <footer className="mt-auto text-center p-4">
           <p>Copyright © Blue Lobsters 2024</p>
         </footer>
