@@ -23,7 +23,7 @@ function AddRecipe() {
     };
 
     try {
-      const response = await fetch(`${BASE_URL}/users/1/recipes`, {
+      const response = await fetch(`${BASE_URL}/users/${userId}/recipes`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
