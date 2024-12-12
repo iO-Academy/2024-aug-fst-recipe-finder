@@ -41,7 +41,6 @@ interface Recipe{
       <><Header title="FoodHub" /><div className="border-4 border-solid border-black rounded-lg w-screen mt-20 file:my-auto mx-auto max-w-md px-4">
         <div className="">
           <Link to="/"><Button value={"Back"} width={"w-20"} height={"h-10"}></Button></Link>
-          {/* <a href="/"><button className="inline-flex rounded-lg bg-[#e27d08] w-1/8 p-2 text-center font-bold mx-2">Back</button></a> */}
           <div className="inline-flex border-2 border-solid border-black rounded-lg mx-16 p-2 text-center font-bold my-4">Single Recipe</div>
         </div>
         <div id="recipecard" className=" p-2 text-center font-bold my-4">
@@ -50,7 +49,6 @@ interface Recipe{
             <div id="preptime" className="border-2 border-solid border-black rounded-lg px-5 py-2 text-center font-bold my-4">Prep Time: {recipe.cook_time}</div>
             <div id="cooktime" className="border-2 border-solid border-black rounded-lg px-5 py-2 text-center font-bold my-4">Cook Time: {recipe.prep_time}</div>
           </div>
-          {/* <div id="ingredients" className="border-2 border-solid border-black rounded-lg p-2 text-center font-bold my-4">Ingredient1</div> */}
           <div id="instructions" className="border-2 border-solid border-black rounded-lg p-2 text-center font-bold my-4">{recipe.instructions}</div>
         </div>
       </div></>
