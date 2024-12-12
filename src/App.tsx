@@ -21,7 +21,7 @@ function App() {
               element={<AllRecipes></AllRecipes>}
             />
             <Route path="*" element={<NotFound />} />
-            <Route path="/singlerecipe" element={<SingleRecipe></SingleRecipe>} />
+            <Route path="/recipe/:recipeId"/>
           </Routes>
         </BrowserRouter>
 
