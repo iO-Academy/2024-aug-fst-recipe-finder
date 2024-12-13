@@ -94,8 +94,8 @@ function AddRecipe() {
       </Link>
       <form action="" method="post" onSubmit={handleSubmit}>
         <div className="w-full px-5 mt-4">
+          <p>Recipe Name:</p>
           <TextInput
-            title="Recipe name:"
             name="name"
             id="addrecipe"
             placeholder="enter recipe name"
@@ -124,10 +124,10 @@ function AddRecipe() {
         </div>
       </form>
       <div className="w-full px-5 mt-4">
+        <p className="mb-2">Add Ingredient</p>
         <form action="" method="post" onSubmit={handleIngredientSubmit}>
           <div className="flex space-x-4">
             <TextInput
-              title="Add Ingredient:"
               name="ingredient"
               id="addingredient"
               placeholder="enter ingredient name"
