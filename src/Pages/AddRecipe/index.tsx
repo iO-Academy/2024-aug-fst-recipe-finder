@@ -103,7 +103,7 @@ function AddRecipe() {
   return (
     <>
       <Header title="Add Recipe" />
-      <Link className="ml-5 mt-4" to={`/recipes`}>
+      <Link className="ml-5 mt-4" to={`/recipes/${userId}`}>
         <Button value="Back" width="w-20" height="h-10" />
       </Link>
       <form action="" method="post" onSubmit={handleSubmit}>
