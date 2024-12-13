@@ -76,6 +76,7 @@ function SingleRecipe() {
                 return <p>{ingredient.name}</p>;
               })}
             </div>
+            <strong>Instructions</strong>
             <p className="text-left">{recipe.instructions}</p>
           </div>
         </div>
